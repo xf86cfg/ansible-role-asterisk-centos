@@ -1,2 +1,5 @@
 ---
-# handlers file for ansible-role-asterisk
+- name: systemd asterisk restart
+  systemd:
+    name: asterisk
+    state: restarted

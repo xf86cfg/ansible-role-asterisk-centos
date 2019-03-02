@@ -26,3 +26,15 @@
     group: asterisk
     mode: 0640
   with_items: "{{ asterisk_configs | default([]) | list }}"
+  notify:
+    - systemd asterisk restart
+
+- name: systemd asterisk start enable
+  systemd:
+    name: asterisk
+    state: started
+    enabled: yes
+  when: ansible_distribution_major_version|int > 6
+  tags:
+    - asterisk
+    - services
