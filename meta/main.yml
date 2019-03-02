@@ -1,5 +1,6 @@
 galaxy_info:
-  author: asterisk
+  role_name: asterisk
+  author: gsfjohnson <gsfjohnson@gmail.com>
   description: Install Digium Asterisk
   license: MIT
   min_ansible_version: 2.4
