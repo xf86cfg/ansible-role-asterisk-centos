@@ -25,8 +25,4 @@
     owner: asterisk
     group: asterisk
     mode: 0640
-  with_items:
-    - voicemail.conf
-    - extension.conf
-    - pjsip.conf
-    - pjsip_wizard.conf
+  with_items: "{{ asterisk_configs | default([]) | list }}"
