@@ -16,6 +16,7 @@
       - asterisk
       - asterisk-voicemail-plain
       - asterisk-pjsip
+    enablerepo: "{{ asterisk_enablerepo | default(omit, true) }}"
 
 - name: config
   copy:
