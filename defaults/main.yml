@@ -1,0 +1,3 @@
+---
+asterisk_yum_repo_url: "https://ast.tucny.com/repo/tucny-asterisk.repo"
+asterisk_yum_gpg_url: "https://ast.tucny.com/repo/RPM-GPG-KEY-dtucny"

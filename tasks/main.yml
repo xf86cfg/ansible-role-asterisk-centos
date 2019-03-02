@@ -1,0 +1,31 @@
+---
+- name: import repo
+  get_url:
+    url: "{{ asterisk_yum_repo_url }}"
+    dest: /etc/yum.repos.d/asterisk.repo
+    mode: 0640
+
+- name: import gpg key
+  rpm_key:
+    key: "{{ asterisk_yum_gpg_url }}"
+    state: present
+
+- name: install
+  yum:
+    name:
+      - asterisk
+      - asterisk-voicemail-plain
+      - asterisk-pjsip
+
+- name: config
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/asterisk/{{ item }}"
+    owner: asterisk
+    group: asterisk
+    mode: 0640
+  with_items:
+    - voicemail.conf
+    - extension.conf
+    - pjsip.conf
+    - pjsip_wizard.conf

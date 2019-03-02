@@ -1,0 +1,10 @@
+galaxy_info:
+  author: asterisk
+  description: Install Digium Asterisk
+  license: MIT
+  min_ansible_version: 2.4
+  galaxy_tags: 
+    - network
+    - pstn
+    - pbx
+    - voicemail
