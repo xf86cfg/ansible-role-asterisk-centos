@@ -11,7 +11,9 @@
     state: present
 
 - name: enable-repo
-  shell: yum-config-manager --enable asterisk*
+  shell: |
+    yum-config-manager --enable asterisk-13
+    yum-config-manager --enable asterisk-common
 
 - name: install
   yum:
