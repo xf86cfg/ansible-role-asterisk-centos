@@ -10,10 +10,22 @@
     key: "{{ asterisk_yum_gpg_url }}"
     state: present
 
-- name: enable-repo
+- name: enable-repos
   shell: |
     yum-config-manager --enable asterisk-13
     yum-config-manager --enable asterisk-common
+
+- name: enable-path-asterisk-common
+  lineinfile:
+    dest: /etc/yum.repos.d/asterisk.repo
+    regexp: '#baseurl=https:\/\/ast\.tucny\.com\/repo\/asterisk-common\/el\$releasever\/\$basearch\/'
+    line: "baseurl=https://ast.tucny.com/repo/asterisk-common/el$releasever/$basearch/"
+
+- name: enable-path-asterisk-13
+  lineinfile:
+    dest: /etc/yum.repos.d/asterisk.repo
+    regexp: '#baseurl=https:\/\/ast\.tucny\.com\/repo\/asterisk-13\/el\$releasever\/\$basearch\/'
+    line: "baseurl=https://ast.tucny.com/repo/asterisk-13/el$releasever/$basearch/"
 
 - name: install
   yum:
