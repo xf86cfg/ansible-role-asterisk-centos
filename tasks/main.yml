@@ -10,6 +10,9 @@
     key: "{{ asterisk_yum_gpg_url }}"
     state: present
 
+- name: enable-repo
+  shell: yum-config-manager --enable asterisk*
+
 - name: install
   yum:
     name:
